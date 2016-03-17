@@ -25,10 +25,10 @@ public class BallDemo
      */
     public void bounce(int n)
     {
-          
+
         Random radioAleatorio = new Random();
         int ground = 400;   // position of the ground line
-        
+
         myCanvas.setVisible(true);
 
         // draw the ground
@@ -37,24 +37,27 @@ public class BallDemo
         // crate and show the balls
         ArrayList<BouncingBall> balls = new ArrayList <>();
         for(int i= 0; i < n; i++){
-        int diametro = radioAleatorio.nextInt(50) + radioAleatorio.nextInt(50); 
-        Color colorRandom = new Color(radioAleatorio.nextInt(255), radioAleatorio.nextInt(255), radioAleatorio.nextInt(255));
-        balls.add( new BouncingBall(50, 50, diametro, colorRandom, ground, myCanvas));
-        balls.get(i).draw();
-       }
-        
+            int diametro = radioAleatorio.nextInt(50) + radioAleatorio.nextInt(50); 
+            int posicionX = radioAleatorio.nextInt(200);
+            int posicionY = radioAleatorio.nextInt(200);
+            Color colorRandom = new Color(radioAleatorio.nextInt(255), radioAleatorio.nextInt(255), radioAleatorio.nextInt(255));
+            balls.add( new BouncingBall(posicionX, posicionY, diametro, colorRandom, ground, myCanvas));
+            balls.get(i).draw();
+        }
 
         // make them bounce
         boolean finished =  false;
         while(!finished) {
             myCanvas.wait(50);           // small delay
             for(int i= 0; i < n; i++){
-            balls.get(i).move();
-           }
+                balls.get(i).move();
+            }
             // stop once ball has travelled a certain distance on x axis
             if(balls.get(0).getXPosition() >= 550 || balls.get(0).getXPosition() >= 550) {
-                finished = true;
+                    finished = true;
+                }
             }
+
         }
     }
-}
+
