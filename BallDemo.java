@@ -26,7 +26,7 @@ public class BallDemo
     public void bounce(int n)
     {
           
-        
+        Random radioAleatorio = new Random();
         int ground = 400;   // position of the ground line
 
         myCanvas.setVisible(true);
@@ -37,7 +37,8 @@ public class BallDemo
         // crate and show the balls
         ArrayList<BouncingBall> balls = new ArrayList <>();
         for(int i= 0; i < n; i++){
-        balls.add( new BouncingBall(50, 50, 16, Color.BLUE, ground, myCanvas));
+        int diametro = radioAleatorio.nextInt(50) + radioAleatorio.nextInt(50); 
+        balls.add( new BouncingBall(50, 50, diametro, Color.BLUE, ground, myCanvas));
         balls.get(i).draw();
        }
         
