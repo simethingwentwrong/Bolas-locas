@@ -51,11 +51,12 @@ public class BallDemo
             myCanvas.wait(50);           // small delay
             for(int i= 0; i < n; i++){
                 balls.get(i).move();
-            }
-            // stop once ball has travelled a certain distance on x axis
-            if(balls.get(0).getXPosition() >= 550 || balls.get(0).getXPosition() >= 550) {
+                // stop once ball has travelled a certain distance on x axis
+           
+                 if(balls.get(i).getXPosition() >= 550 ) {
                     finished = true;
                 }
+            }
             }
 
         }
